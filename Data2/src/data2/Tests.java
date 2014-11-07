@@ -211,9 +211,10 @@ public class Tests<I extends Comparable> {
     public void member_union() throws Exception {
         for (int i = 0; i < repeat; i++) {
             int length = randInt(0, maxRandySize);
+            int length2 = randInt(0, maxRandySize);
             I x = randy.makeRandom();
             Bag b = randBag(length);
-            Bag bb = randBag(length);
+            Bag bb = randBag(length2);
             Bag bX = b.add(x);
             Bag bbX = bb.add(x);
             Bag u1 = (bX.union(bbX));

@@ -8,9 +8,14 @@ package data2;
  * @param <I> A generic type object
  */
 public class MTSet<I extends Comparable> implements Bag<I>, Sequenced<I> {
-
+    boolean isBlack;
+    
     public void MTSet() {
-
+        this.isBlack = true;
+    }
+    
+    public void MTSet(Boolean isBlack) {
+        this.isBlack = isBlack;
     }
 
     public Bag empty() {
@@ -30,7 +35,7 @@ public class MTSet<I extends Comparable> implements Bag<I>, Sequenced<I> {
     }
 
     public Bag add(I elt) {
-        return new FullSet(elt);
+        return this.addN(elt, 1).blacken();
     }
 
     public Bag remove(I elt) {
@@ -42,7 +47,7 @@ public class MTSet<I extends Comparable> implements Bag<I>, Sequenced<I> {
     }
 
     public Bag inter(Bag set) {
-        return this;
+        return empty();
     }
 
     public Bag diff(Bag set) {
@@ -50,7 +55,7 @@ public class MTSet<I extends Comparable> implements Bag<I>, Sequenced<I> {
     }
 
     public boolean equal(Bag set) {
-        return set.isEmptyHuh();
+        return set.cardinality() == this.cardinality();
     }
 
     public boolean subset(Bag set) {
@@ -62,18 +67,30 @@ public class MTSet<I extends Comparable> implements Bag<I>, Sequenced<I> {
     }
 
     public Bag addN(I elt, int i) {
-        return new FullSet(elt, i);
+        return new FullSet(elt, i, empty(), empty(), false);
     }
 
     public Bag removeN(I elt, int i) {
-        return this;
+        return this.remove(elt);
     }
 
     public Bag removeAll(I elt) {
-        return this;
+        return this.remove(elt);
     }
 
     public Sequence<I> seq() {
         return new MTSeq();
+    }
+    
+    public Bag balance(){
+        return this;
+    }
+    
+    public boolean isBlackHuh(){
+        return isBlack;
+    }
+    
+    public Bag blacken(){
+        return new MTSet();
     }
 }

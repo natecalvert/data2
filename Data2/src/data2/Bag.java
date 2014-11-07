@@ -164,17 +164,24 @@ public interface Bag<I extends Comparable> extends Sequenced<I> {
      */
     public Sequence<I> seq();
 
-    // I'm sure there's more to come...
+    /**
+     * Balances the tree such that no neighboring nodes differ in depth by more than 1
+     * 
+     * @return A Bag, newly made with all previous elements
+     */
+    public Bag balance();
     
-//    public int sumIt();
-//
-//    public int sumItS(Sequence<I> as);
-//
-//    public String stringIt();
-//
-//    public String stringItS(Sequence<I> as);
-//
-//    public Bag<I> addInner(I elt, int n);
-//
-//    public boolean isRedHuh();
+    /**
+     * Indicates the color of the item as either black or red
+     * 
+     * @return A boolean, true for black, false for red
+     */
+    public boolean isBlackHuh();
+    
+    /**
+     * Changes the color of an item to black
+     * 
+     * @return A Bag, newly made with all previous elements, with isBlack changed to true
+     */
+    public Bag blacken();
 }
