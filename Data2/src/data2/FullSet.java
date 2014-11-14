@@ -247,8 +247,6 @@ public class FullSet<I extends Comparable> implements Bag<I>, Sequenced<I> {
                 && (((FullSet) this.left).left instanceof FullSet)
                 && !((FullSet) this.left).isBlackHuh()
                 && !((FullSet) this.left).left.isBlackHuh())) {
-            //cast it so compiler knows it's FullSet
-            //error item because i can't get the left of left. 
 
             lefty = ((FullSet) this.left);
             leftyleft = ((FullSet) lefty.left);

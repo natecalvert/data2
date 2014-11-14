@@ -13,7 +13,7 @@ public class SequenceComb<I extends Comparable> implements Sequence<I>, Sequence
     Sequence<I> right;
     
     /**
-     * Constructor that takes a left and a right to combine sequences
+     * Constructor that takes a left and a right sequence, to combine sequences
      * 
      * @param left A sequence
      * @param right A sequence

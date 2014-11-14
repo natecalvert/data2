@@ -74,7 +74,7 @@ public class Tests<I extends Comparable> {
     }
 
     // Cardinality, Remove & getCount
-    //   After removing and element from a bag, the cardinality must
+    //   After removing an element from a bag, the cardinality must
     //   be less than or equal to the original cardinality.
     public void cardinality_remove_getCount() throws Exception {
         for (int i = 0; i < repeat; i++) {
@@ -261,7 +261,7 @@ public class Tests<I extends Comparable> {
 
     // Subset & Union
     //   The subset of a bag on the union of it with another bag
-    //   must contain the bag. (aka subset my be true)
+    //   must contain the bag. (aka subset must be true)
     public void union_subset() throws Exception {
         for (int i = 0; i < repeat; i++) {
             int length = randInt(0, maxRandySize);
